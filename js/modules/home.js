@@ -1,5 +1,6 @@
 import Game from "./game.js";
 import How from "./how.js";
+import {sound} from "../data/sound.js";
 
 const Home = (_ => {
   //cache DOM
@@ -25,9 +26,11 @@ const Home = (_ => {
   const listeners = _ => {
     document.querySelector(".start").addEventListener("click", () => {
       Game.init();
+      sound.click.play();
     })
     document.querySelector(".instructions").addEventListener("click", () => {
       How.init();
+      sound.click.play();
     })
 
   }
