@@ -1,6 +1,9 @@
 import Home from './home.js';
 import End from './end.js'
+import Canvas from './canvas.js';
+
 import {sound} from '../data/sound.js';
+
 const Game = (_ => {
   const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   const words = ['apple', 'ball', 'cat', 'dog', 'elephant'];
@@ -23,6 +26,7 @@ const Game = (_ => {
     // show initial screen screen or page
     showInitPage();
     listeners();
+    Canvas.init();
   }
   const listeners = _ => {
     $hangman.addEventListener('click', event => {
@@ -51,6 +55,7 @@ const Game = (_ => {
       updateGuessingWord(guess);
     } else {
       lives--;
+      Canvas.setLives(lives);
     }
     render();
     isGameOver();
